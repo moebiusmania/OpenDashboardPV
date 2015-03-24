@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="odpv">
+<html lang="it" ng-app="odpv">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" >
-    <title>Document</title>
     
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
+    <title>Open Dashboard | Pavia</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="bower_components/foundation/css/normalize.css">
     <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="app/css/style.css">
     
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/papaparse/papaparse.min.js"></script>
@@ -16,28 +17,47 @@
 </head>
 <body ng-controller="testCtrl">
     
-    <div class="row">
-        <div class="small-12 columns">
-            <table>
-                <thead>
-                    <tr ng-repeat="row in thead track by $index">
-                        <th ng-repeat="cell in row track by $index">{{cell}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="row in tbody track by $index" ng-if="row[0]">
-                        <td ng-repeat="cell in row track by $index">{{cell}}</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr ng-repeat="row in tfoot track by $index">
-                        <th ng-repeat="cell in row track by $index">{{cell}}</th>
-                    </tr>
-                </tfoot>
-            </table>
+    <div class="container">
+        <div class="sidebar">
+
         </div>
-    </div>
-    
+
+        <div class="content">
+            <div class="row data-tables">
+                <div class="small-12 columns">
+                    <h3>{{tableTitle}}</h3>
+                    <table>
+                        <thead>
+                            <tr ng-repeat="row in thead track by $index">
+                                <th ng-repeat="cell in row track by $index">{{cell}}</th>
+                            </tr>
+                            <tr>
+                                <th colspan="{{thead[0].length}}">
+                                    <input type="text" ng-model="name"
+                                    placeholder="Filtra i risultati per nome">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in tbody track by $index" ng-if="row[0]" ng-show="filterByName($index)">
+                                <td ng-repeat="cell in row track by $index" data-n="{{$index}}"
+                                ng-if="$index !== (row.length - 1) && $index !== (row.length - 2) ">{{cell}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr ng-repeat="row in tfoot track by $index">
+                                <th ng-repeat="cell in row track by $index">{{cell}}</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="small-12 columns irap">
+                    <p><strong>{{irap[0][0]}}:</strong> <span>{{irap[1][0]}}</span></p> 
+                    <p><strong>{{irap[0][1]}}:</strong> <span>{{irap[1][1]}}</span></p>
+                </div>
+            </div>
+        </div>        <!-- /.content -->
+    </div>            <!-- /.container -->
     
 </body>
 </html>

@@ -19,6 +19,7 @@
     "foundation": "~5.5.1"
   },
   "devDependencies": {
-    "papaparse": "~4.1.0"
+    "papaparse": "~4.1.0",
+    "lodash": "~3.5.0"
   }
 }
