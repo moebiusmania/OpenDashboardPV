@@ -2,28 +2,33 @@ body,
 h3 {
   font-family: 'Source Sans Pro', sans-serif;
 }
-.container {
-  height: auto;
-  overflow: hidden;
+.container .content > .row {
+  width: 100%;
+  max-width: 100%;
 }
-.container .sidebar {
-  background-color: #222;
-  width: 225px;
-  float: left;
-  position: relative;
+.data-tables h3 {
+  text-transform: capitalize;
 }
-.container .content {
-  float: none;
-  width: auto;
+.data-tables .irap strong {
+  color: #262626;
 }
-.data-tables .irap span {
-  font-size: 1.4em;
+.data-tables .irap span.totals {
+  font-size: 1.5em;
 }
-table thead tr th thead tr {
+.data-tables .irap::first-child p {
+  margin-bottom: 0;
+}
+table thead tr {
   font-size: 13px;
   font-weight: 400;
 }
-table thead tr th tr td {
-  font-size: 12px;
+table thead tr th {
+  text-align: center;
+}
+table thead tr th::first-letter {
+  text-transform: uppercase;
+}
+table tr td {
+  font-size: 13px;
   font-weight: 300;
 }

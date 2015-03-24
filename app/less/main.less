@@ -1,43 +1,53 @@
 @font: 'Source Sans Pro', sans-serif;
+@black: #000;
 
 body,h3{
     font-family: @font;
 }
 
 .container{
-    height: auto;
-    overflow: hidden;
-    .sidebar{
-        background-color: #222;
-        width: 225px;
-        float: left;
-        position: relative;
-    }
     .content{
-        float: none;
-        width: auto;
+        >.row{
+            width: 100%;
+            max-width: 100%;
+        }
     }
 }
 
 .data-tables{
+    h3{
+        text-transform: capitalize;
+    }
     .irap{
-        span{
-            font-size: 1.4em;
+        strong{
+            color: lighten(@black,15%);
         }
+        span.totals{
+            font-size: 1.5em;
+        }
+    }
+    .irap::first-child p{
+        margin-bottom: 0;
     }
 }
 
 
-table thead tr th{
+table{
     thead{
         tr{
             font-size: 13px;
             font-weight: 400;
+            th{
+                text-align: center;
+            }
+            th::first-letter{
+                text-transform: uppercase;
+            }
         }
     }
     tr{
         td{
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 300;
         }
     }

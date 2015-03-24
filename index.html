@@ -39,21 +39,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="row in tbody track by $index" ng-if="row[0]" ng-show="filterByName($index)">
+                            <tr ng-repeat="row in tbody track by $index" ng-if="row[0]" data-n="{{$index}}" 
+                               ng-show="filterByName($index)">
                                 <td ng-repeat="cell in row track by $index" data-n="{{$index}}"
                                 ng-if="$index !== (row.length - 1) && $index !== (row.length - 2) ">{{cell}}</td>
                             </tr>
                         </tbody>
-                        <tfoot>
+                        <tfoot ng-show="name.length < 1">
                             <tr ng-repeat="row in tfoot track by $index">
                                 <th ng-repeat="cell in row track by $index">{{cell}}</th>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
-                <div class="small-12 columns irap">
-                    <p><strong>{{irap[0][0]}}:</strong> <span>{{irap[1][0]}}</span></p> 
-                    <p><strong>{{irap[0][1]}}:</strong> <span>{{irap[1][1]}}</span></p>
+                <div class="medium-3 columns irap">
+                    <p><span>{{irap[0][0]}}:</span> <span class="totals">{{irap[1][0]}}</span></p> 
+                    
+                </div>
+                <div class="medium-5 columns irap end">
+                    <p><span>{{irap[0][1]}}:</span> <span class="totals">{{irap[1][1]}}</span></p>
                 </div>
             </div>
         </div>        <!-- /.content -->
