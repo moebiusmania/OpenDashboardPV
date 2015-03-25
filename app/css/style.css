@@ -2,6 +2,9 @@ body,
 h3 {
   font-family: 'Source Sans Pro', sans-serif;
 }
+.container .content {
+  padding-top: 30px;
+}
 .container .content > .row {
   width: 100%;
   max-width: 100%;

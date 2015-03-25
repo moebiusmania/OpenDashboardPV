@@ -6,6 +6,7 @@
     <title>Open Dashboard | Pavia</title>
     
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/foundation/css/normalize.css">
     <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
     <link rel="stylesheet" href="app/css/style.css">
@@ -25,6 +26,16 @@
         <div class="content">
             <div class="row data-tables">
                 <div class="small-12 columns">
+                    <button ng-click="init(0)">
+                        <span class="fa fa-book"></span>
+                        Sorgente 1
+                    </button>
+                    <button ng-click="init(1)">
+                        <span class="fa fa-book"></span>
+                        Sorgente 2
+                    </button>
+                </div>
+                <div class="small-12 columns" ng-show="tableTitle" ng-cloak>
                     <h3>{{tableTitle}}</h3>
                     <table>
                         <thead>
@@ -52,11 +63,11 @@
                         </tfoot>
                     </table>
                 </div>
-                <div class="medium-3 columns irap">
+                <div class="medium-3 columns irap" ng-show="irap" ng-cloak>
                     <p><span>{{irap[0][0]}}:</span> <span class="totals">{{irap[1][0]}}</span></p> 
                     
                 </div>
-                <div class="medium-5 columns irap end">
+                <div class="medium-5 columns irap end" ng-show="irap" ng-cloak>
                     <p><span>{{irap[0][1]}}:</span> <span class="totals">{{irap[1][1]}}</span></p>
                 </div>
             </div>
