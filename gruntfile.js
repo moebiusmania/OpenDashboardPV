@@ -6,10 +6,22 @@ module.exports = function(grunt) {
         files: {
           "app/css/style.css": "app/less/main.less"
         }
+      },
+      deploy:{
+        options:{
+          compress: true
+        },
+        files: {
+          "app/css/style.min.css": "app/less/main.less"
+        }
       }
     },
     watch: {
       all:{
+        files: ['app/less/*.less'],
+        tasks: ['less:style']
+      },
+      styles:{
         files: ['app/less/*.less'],
         tasks: ['less:style']
       }
@@ -29,7 +41,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-notify');
 
   grunt.registerTask('default', ['watch:all']);
-  grunt.registerTask('compile', ['less']);
+  grunt.registerTask('compile', ['less:style']);
+  grunt.registerTask('deploy', ['less:deploy']);
 
   grunt.task.run('notify_hooks');
 };

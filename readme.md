@@ -2,6 +2,12 @@
 
 Un cruscotto di visualizzazione dati per gli Open Data del comune di Pavia.
 
+#### Installazione locale ed utilizzo
+- Installare NodeJS
+- Clonare questo repository (o scaricarlo)
+- Aprire il terminale nella cartella in cui è stato scaricato e installare le dipendenze necessarie con i comandi "npm install" e "bower install"
+- Avviare un browser e visitare l'indirizzo http://localhost:9000
+
 #### Software utilizzato
 Tutto il software e tutte le librerie che ho utilizzato per realizzare questo progetto sono distribuiti tramite licenze open-source.
 
@@ -10,3 +16,9 @@ Tutto il software e tutte le librerie che ho utilizzato per realizzare questo pr
 - [SourceTree]() (Git GUI)
 - [GruntJS]() (task runner)
 - [Bower]() (frontend package manager)
+
+#### Sviluppo
+
+
+#### Licenza
+open source (devo ancora documentarmi su quale sia meglio)
