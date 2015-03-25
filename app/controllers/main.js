@@ -1,12 +1,11 @@
-var app = angular.module('odpv',[]);
+var app = angular.module('odpv',['ngRoute']);
 
         
-app.controller('testCtrl',['$scope','$http',
-    function($scope,$http){
+app.controller('testCtrl',['$scope','$http','$routeParams',
+    function($scope,$http,$routeParams){
 
-//                var url = 'http://servizi1.epavia.it/bandionline/csv.php?it';
         var url = ['data/14459GETTONIDIPRESENZ.csv','data/14451GETTONIDIPRESENZ.csv'];
-        
+        console.log($routeParams);
         // Inizialiazzazione
         $scope.init = function(i){
             $scope.name = "";
@@ -46,10 +45,10 @@ app.controller('testCtrl',['$scope','$http',
             angular.forEach($scope.resp.data,function(v,k){
                 //console.log(v,k);
                 var _temp = JSON.stringify(v);
-
+                v[0] = v[0].toLowerCase();
                 console.log(_temp);
                 // Sposta il totale nel footer della tabella
-                if( v[0] === 'Totale' || 
+                if( v[0] === 'totale' || 
                    ((k === $scope.resp.data.length -1) && v[1]) ){ 
                     $scope.tfoot = $scope.resp.data.splice(k,1) 
                 }
@@ -63,7 +62,14 @@ app.controller('testCtrl',['$scope','$http',
             window.irap = $scope.irap;
         }
         
-        
-        $scope.init(0);
+        // Avvio
+        var i;
+        if(window.location.hash === ""){
+            i = 0;
+            window.location.hash = "#0";
+        }else{
+            i = parseInt(window.location.hash.substr(1));
+        }
+        $scope.init(i);
 
     }]);

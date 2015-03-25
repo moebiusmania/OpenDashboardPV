@@ -1,5 +1,6 @@
 @font: 'Source Sans Pro', sans-serif;
 @black: #000;
+@baseAnim: all 0.4s ease;
 
 body,h3{
     font-family: @font;
@@ -41,15 +42,24 @@ table{
             th{
                 text-align: center;
             }
-            th::first-letter{
+            th:first-letter{
                 text-transform: uppercase;
             }
+        }
+    }
+    tbody{
+        tr{
+            transition: @baseAnim;
+            background-color: white;
         }
     }
     tr{
         td{
             font-size: 13px;
             font-weight: 300;
+        }
+        td:first-child{
+            text-transform: capitalize;
         }
     }
 }

@@ -28,10 +28,17 @@ table thead tr {
 table thead tr th {
   text-align: center;
 }
-table thead tr th::first-letter {
+table thead tr th:first-letter {
   text-transform: uppercase;
+}
+table tbody tr {
+  transition: all 0.4s ease;
+  background-color: white;
 }
 table tr td {
   font-size: 13px;
   font-weight: 300;
+}
+table tr td:first-child {
+  text-transform: capitalize;
 }
