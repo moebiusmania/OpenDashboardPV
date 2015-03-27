@@ -5,7 +5,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
     <meta name="author" content="Salvatore Laisa">
     <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Dashboard | Pavia</title>
+    
+    <!-- Icone -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <!-- <link rel="apple-touch-icon" href="/img/logo_mi.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/img/logo_mi.svg">
+    <meta name="mobile-web-app-capable" content="yes"> -->
     
     <!-- Styles -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
@@ -17,6 +26,8 @@
     <!-- Scripts -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script src="bower_components/papaparse/papaparse.min.js"></script>
     <script src="app/config.js"></script>
     <script src="app/services/repository.js"></script>
@@ -49,6 +60,12 @@
                                 <th ng-repeat="cell in row track by $index">{{cell}}</th>
                             </tr>
                             <tr>
+                                <th ng-show="name.length > 0">
+                                    <button class="tiny secondary" ng-disabled="name.length === 0"
+                                       ng-click="name = ''">
+                                        <span class="fa fa-remove"></span>
+                                    </button>
+                                </th>
                                 <th colspan="{{thead[0].length}}">
                                     <input type="text" ng-model="name"
                                     placeholder="Filtra i risultati per nome">
@@ -57,7 +74,8 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="row in tbody track by $index" ng-if="row[0]" data-n="{{$index}}" 
-                               ng-show="filterByName($index)" ng-click="selectOne($index)">
+                               ng-show="filterByName($index)" ng-click="selectOne($index)"
+                               style="transition-delay: {{$index * 0.03}}s">
                                 <td ng-repeat="cell in row track by $index" data-n="{{$index}}"
                                 ng-if="$index !== (row.length - 1) && $index !== (row.length - 2) ">{{cell}}</td>
                             </tr>

@@ -1,1 +1,1 @@
-var app = angular.module('odpv',['ngRoute']);
+var app = angular.module('odpv',['ngRoute','ngAnimate','duScroll']);

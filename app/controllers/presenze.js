@@ -1,5 +1,5 @@
-app.controller('presenzeCtrl',['$scope','$http','$routeParams','Dati',
-    function($scope,$http,$routeParams,Dati){
+app.controller('presenzeCtrl',['$scope','$routeParams','Dati','$document',
+    function($scope,$routeParams,Dati,$document){
 
         var url = ['data/14459GETTONIDIPRESENZ.csv','data/14451GETTONIDIPRESENZ.csv'];
         
@@ -11,7 +11,7 @@ app.controller('presenzeCtrl',['$scope','$http','$routeParams','Dati',
             $scope.tfoot = null;
             $scope.irap = null;
             $scope.tableTitle = null;
-            // Carica i dati
+            // Carica i dati dal service repository
             Dati.presenzeConsiglio(i)
                 .success($scope.parseData)
                 .error(function(r,s){
@@ -32,6 +32,7 @@ app.controller('presenzeCtrl',['$scope','$http','$routeParams','Dati',
         // Click su una riga del corpo della tabella
         $scope.selectOne = function(i){
             var _name = $scope.tbody[i][0];
+            $document.scrollTop(100, 400);
             $scope.name = _name;
             console.log(_name);
         }

@@ -1,6 +1,7 @@
 @font: 'Source Sans Pro', sans-serif;
 @black: #000;
 @baseAnim: all 0.4s ease;
+@tableAnim: all 0.2s ease;
 
 body,h3{
     font-family: @font;
@@ -49,17 +50,25 @@ table{
     }
     tbody{
         tr{
-            transition: @baseAnim;
-            background-color: white;
+            transition: @tableAnim;
+            -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+        }
+        tr.ng-enter{
+            -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+        }
+        tr.ng-hide{ 
+            -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
         }
     }
     tbody:hover{
         tr{
-            opacity: 0.5;
+            
         } 
         tr:hover{
             cursor: pointer;
-            opacity: 1;
         }
     }
     tr{

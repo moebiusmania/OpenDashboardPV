@@ -32,15 +32,20 @@ table thead tr th:first-letter {
   text-transform: uppercase;
 }
 table tbody tr {
-  transition: all 0.4s ease;
-  background-color: white;
+  transition: all 0.2s ease;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
 }
-table tbody:hover tr {
-  opacity: 0.5;
+table tbody tr.ng-enter {
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+table tbody tr.ng-hide {
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
 }
 table tbody:hover tr:hover {
   cursor: pointer;
-  opacity: 1;
 }
 table tr td {
   font-size: 13px;
