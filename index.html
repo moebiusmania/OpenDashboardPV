@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="it" ng-app="odpv">
 <head>
-    
+    <!-- Metadata -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8 ">
+    <meta name="author" content="Salvatore Laisa">
+    <meta name="description" content="">
     <title>Open Dashboard | Pavia</title>
     
+    <!-- Styles -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/foundation/css/normalize.css">
     <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
     <link rel="stylesheet" href="app/css/style.css">
     
+    <!-- Scripts -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/papaparse/papaparse.min.js"></script>
     <script src="app/config.js"></script>
     <script src="app/services/repository.js"></script>
-    <script src="app/controllers/main.js"></script>
-    
+    <script src="app/controllers/presenze.js"></script>
 </head>
-<body ng-controller="testCtrl">
+<body ng-controller="presenzeCtrl">
     
     <div class="container">
         <div class="sidebar">
@@ -54,7 +57,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="row in tbody track by $index" ng-if="row[0]" data-n="{{$index}}" 
-                               ng-show="filterByName($index)">
+                               ng-show="filterByName($index)" ng-click="selectOne($index)">
                                 <td ng-repeat="cell in row track by $index" data-n="{{$index}}"
                                 ng-if="$index !== (row.length - 1) && $index !== (row.length - 2) ">{{cell}}</td>
                             </tr>
@@ -76,6 +79,5 @@
             </div>
         </div>        <!-- /.content -->
     </div>            <!-- /.container -->
-    
 </body>
 </html>

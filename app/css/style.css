@@ -35,6 +35,13 @@ table tbody tr {
   transition: all 0.4s ease;
   background-color: white;
 }
+table tbody:hover tr {
+  opacity: 0.5;
+}
+table tbody:hover tr:hover {
+  cursor: pointer;
+  opacity: 1;
+}
 table tr td {
   font-size: 13px;
   font-weight: 300;

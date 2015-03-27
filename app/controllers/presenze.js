@@ -1,4 +1,4 @@
-app.controller('testCtrl',['$scope','$http','$routeParams','Dati',
+app.controller('presenzeCtrl',['$scope','$http','$routeParams','Dati',
     function($scope,$http,$routeParams,Dati){
 
         var url = ['data/14459GETTONIDIPRESENZ.csv','data/14451GETTONIDIPRESENZ.csv'];
@@ -12,7 +12,7 @@ app.controller('testCtrl',['$scope','$http','$routeParams','Dati',
             $scope.irap = null;
             $scope.tableTitle = null;
             // Carica i dati
-            Dati.presenzaConsiglio(i)
+            Dati.presenzeConsiglio(i)
                 .success($scope.parseData)
                 .error(function(r,s){
                     console.log(r,s);
@@ -29,6 +29,14 @@ app.controller('testCtrl',['$scope','$http','$routeParams','Dati',
             }
         }
         
+        // Click su una riga del corpo della tabella
+        $scope.selectOne = function(i){
+            var _name = $scope.tbody[i][0];
+            $scope.name = _name;
+            console.log(_name);
+        }
+        
+        // Converte il sorgente in una nuova struttura dati
         $scope.parseData = function(r,s){
             // Converte il CSV in JSON
             $scope.resp = Papa.parse(r,{
