@@ -1,4 +1,5 @@
 # OpenDashboard Pavia
+    (Work in progress)
 
 Un cruscotto di visualizzazione dati per gli Open Data del comune di Pavia.
 
@@ -19,6 +20,8 @@ Tutto il software e tutte le librerie che ho utilizzato per realizzare questo pr
 
 #### Sviluppo
 
+#### Design
+grafica dashboard https://dribbble.com/shots/1763054-Free-PSD-Dashboard
 
 #### Licenza
 open source (devo ancora documentarmi su quale sia meglio)
