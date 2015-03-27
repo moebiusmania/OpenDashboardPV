@@ -1,11 +1,8 @@
-var app = angular.module('odpv',['ngRoute']);
-
-        
-app.controller('testCtrl',['$scope','$http','$routeParams',
-    function($scope,$http,$routeParams){
+app.controller('testCtrl',['$scope','$http','$routeParams','Dati',
+    function($scope,$http,$routeParams,Dati){
 
         var url = ['data/14459GETTONIDIPRESENZ.csv','data/14451GETTONIDIPRESENZ.csv'];
-        console.log($routeParams);
+        
         // Inizialiazzazione
         $scope.init = function(i){
             $scope.name = "";
@@ -15,7 +12,7 @@ app.controller('testCtrl',['$scope','$http','$routeParams',
             $scope.irap = null;
             $scope.tableTitle = null;
             // Carica i dati
-            $http.get(url[i])
+            Dati.presenzaConsiglio(i)
                 .success($scope.parseData)
                 .error(function(r,s){
                     console.log(r,s);
@@ -65,8 +62,8 @@ app.controller('testCtrl',['$scope','$http','$routeParams',
         // Avvio
         var i;
         if(window.location.hash === ""){
-            i = 0;
-            window.location.hash = "#0";
+            i = 14459;
+            window.location.hash = "#14459";
         }else{
             i = parseInt(window.location.hash.substr(1));
         }
