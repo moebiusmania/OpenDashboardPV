@@ -9,6 +9,28 @@ Un cruscotto di visualizzazione dati per gli Open Data del comune di Pavia.
 - Aprire il terminale nella cartella in cui è stato scaricato e avviare il server locale con il comando "npm start"
 - Avviare un browser e visitare l'indirizzo http://localhost:9000
 
+#### Roadmap
+<del> **v0.1** - implementazione di almeno una funzionalità di visualizzazione dati multisorgente </del>
+
+**v0.2** - codifica design dashboard (no responsive)
+
+**v0.3** - aggiunta charts
+
+**v0.4** - architettura di routing
+
+**v0.5** - implementazione di almeno una visualizzazione mappa + layer dati multisorgente
+
+**v0.6** - pagine statiche + social sharing
+
+**v0.7** - template per dati tipo feed
+
+**v0.8** - pubblicazione beta online
+
+**v0.9** - aggiunta nuovi sorgenti a template già esistenti, rifiniture varie
+
+**v1.0** - primo deploy su URL pubblico
+
+
 #### Software utilizzato
 Tutto il software e tutte le librerie che ho utilizzato per realizzare questo progetto sono distribuiti tramite licenze open-source.
 
